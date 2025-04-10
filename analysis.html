@@ -1,0 +1,132 @@
+
+
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pre-Match Analysis</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .input-group {
+      margin-bottom: 15px;
+    }
+    .input-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    .input-group input {
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #28a745;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #218838;
+    }
+    .result-container {
+      margin-top: 20px;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background: rgb(221, 255, 229);
+      display: none;
+    }
+    .result-container h2 {
+      text-align: center;
+    }
+    .result-container p {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Pre-Match Analysis</h1>
+    <form id="analysisForm">
+      <div class="input-group">
+        <label for="yourTeam">Your Team Name:</label>
+        <input type="text" id="yourTeam" name="yourTeam" required>
+      </div>
+      <div class="input-group">
+        <label for="opponentTeam">Opponent Team Name:</label>
+        <input type="text" id="opponentTeam" name="opponentTeam" required>
+      </div>
+      <div class="input-group">
+        <label for="yourScore">Your Team's Last Match Score (Goals):</label>
+        <input type="number" id="yourScore" name="yourScore" required>
+      </div>
+      <div class="input-group">
+        <label for="opponentScore">Opponent Team's Last Match Score (Goals):</label>
+        <input type="number" id="opponentScore" name="opponentScore" required>
+      </div>
+      <button type="submit">Analyze</button>
+    </form>
+    <div id="result" class="result-container">
+      <!-- سيتم عرض نتائج التحليل هنا -->
+    </div>
+  </div>
+  <script>
+    document.getElementById('analysisForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // جلب القيم المدخلة
+      var yourTeam = document.getElementById('yourTeam').value;
+      var opponentTeam = document.getElementById('opponentTeam').value;
+      var yourScore = parseInt(document.getElementById('yourScore').value);
+      var opponentScore = parseInt(document.getElementById('opponentScore').value);
+      
+      var analysis = "";
+      
+      // منطق أولي لتحليل المباراة بناءً على نتيجة المباراة الأخيرة
+      if (yourScore < opponentScore) {
+  analysis += "<p>سجل فريقك أهدافًا أقل من " + opponentTeam + ". يُنصح بتحسين استراتيجيات الهجوم، وتطوير الختام، وخلق فرص تسجيل أكثر.</p>";
+} else if (yourScore > opponentScore) {
+  analysis += "<p>أداء فريقك في التسجيل كان أفضل ضد " + opponentTeam + ".ركز على الحفاظ على الاستحواذ، وتعزيز الدفاع، واستغلال الهجمات المرتدة.</p>";
+} else {
+  analysis += "<p>انتهت المباراة بالتعادل. قد يكون من المفيد مراجعة الاستراتيجيات الهجومية والدفاعية، والعمل على الكرات الثابتة، وتحسين التنسيق العام للفريق.</p>";
+}
+
+// نصائح عامة إضافية
+analysis += "<p>نصيحة عامة: حلل اللاعبين الرئيسيين للفريق المنافس، واضبط تكتيكاتك وفقًا لذلك، وأكد على الانتقالات السريعة بين الدفاع والهجوم.</p>";
+
+// عرض النتائج في الحاوية المنفصلة
+var resultDiv = document.getElementById('result');
+resultDiv.innerHTML = "<h2>نتيجة التحليل</h2>" +
+                      "<p><strong>فريقك:</strong> " + yourTeam + "</p>" +
+                      "<p><strong>الفريق المنافس:</strong> " + opponentTeam + "</p>" +
+                      analysis;
+resultDiv.style.display = "block";
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #e2e2e5;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  .live-broadcast {
+    width: 60%;
+  }
+  
+  .live-broadcast iframe {
+    width: 100%;
+    height: 400px;
+  }
+  
+  .match-info {
+    width: 35%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .info-box p {
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+  
+  strong {
+    font-weight: bold;
+  }
+  
