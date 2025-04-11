@@ -2,11 +2,8 @@
 A simple and extendable web application to visualize live and static match data including win probabilities, team formation strength, and injury likelihood.
 
 📁 Project Structure
-bash
-نسخ
-تحرير
-project/
-│
+
+
 ├── index.html         # Main page displaying basic match info
 ├── script.js          # Handles data updates for index.html
 ├── styles.css         # Styles for the main match page
